@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# REQUIREMENTS
-#	BASH	
-
-# SOURCES
-#	https://github.com/gcamerli/42header
-
 # Author: Nuno Carvalho (Kuninoto)
 # LINUX
 
