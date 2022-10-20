@@ -17,13 +17,13 @@ sudo apt upgrade -y
 # PYTHON3 & PIP CHECK
 if ! [ -x "$(command -v python3)" ]; then
   echo -e "${RED}Error${RESET}: python3 is not installed."
-  echo -e "Proceeding to python3 installation..."
+  echo -e "${CYAN}Proceeding to install python3...${RESET}"
   sudo apt-get install python3
 fi
 
 if ! [ -x "$(command -v pip)" ]; then
   echo -e "${RED}Error${RESET}: pip is not installed."
-  echo "Proceeding to pip installation..."
+  echo "${CYAN}Proceeding to install pip...${RESET}"
   sudo apt-get install python3-pip
 fi
 
@@ -31,9 +31,9 @@ for arg in "$@"
 do
 	case "$arg" in
 		"-v"*)	if [ -x "$(command -v vim)" ]; then
-					echo "Vim is already installed."
+					echo "${CYAN}Vim is already installed.${RESET}"
 				else
-					echo "${CYAN}Installing Vim"
+					echo "${CYAN}Installing Vim${RESET}"
 					sudo apt-get install vim
 				fi;;
 
@@ -42,29 +42,27 @@ do
 					read -r FT_User
 
 					if ! grep -q 'MAIL=' "/home/$(whoami)/.bashrc"; then
-
 					{	echo "USER=$FT_User"
 						echo "MAIL=$FT_User@student.42.fr"
 						echo "export MAIL"; } >> ~/.bashrc
-					
 					fi
-					# mkdir with -p option creates folder if it doesnt exist, if it exists, does nothing.
+					# mkdir with -p option creates dir if it doesnt exist; if it exists, does nothing.
 					mkdir -p ~/.vim/plugin
 					cp stdheader.vim ~/.vim/plugin/
 					echo "nmap <f1> :FortyTwoHeader<CR>" >> ~/.vimrc
 				else
-					echo "${RED}Error${RESET}: vim is not installed."
-					echo "Run norminette_installer with -v option"
+					echo -e "${RED}Error${RESET}: vim is not installed."
+					echo -e "${CYAN}Run installette with the -v option${RESET}"
 				fi;;
 
 		"-n"*)	if [ -x "$(command -v norminette)" ]; then
-					echo "Norminette is already installed."
+					echo -e "${CYAN}Norminette is already installed.${RESET}"
 				else
-					echo -e "${CYAN}Installing Norminette"
+					echo -e "${CYAN}Installing Norminette${RESET}"
 					python3 -m pip install --upgrade pip setuptools
 					python3 -m pip install norminette
-					echo "Setting norminette path on PATH env variable"
-					echo "export PATH=$PATH: /home/$(whoami)/.local/bin/">> ~/.bashrc
+					echo -e "${CYAN}Setting norminette path on PATH environment variable${RESET}"
+					echo "export PATH=$PATH: /home/$(whoami)/.local/bin/" >> ~/.bashrc
 				fi;;
 
 		"-u"*)  sed -i '/^USER/d' ~/.bashrc
