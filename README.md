@@ -1,8 +1,8 @@
 # Installette <img src="https://github.com/devicons/devicon/blob/master/icons/bash/bash-original.svg" title="Bash" alt="Bash Logo" width="50" height="60" align="right" />&nbsp; <img src="https://github.com/devicons/devicon/blob/master/icons/linux/linux-original.svg" title="Linux" alt="Linux Logo" width="50" height="60" align="right" />&nbsp;
 
 ## About Installette
-Installette is a bash script developed for Linux that aims to be a
-simplified and automated setup for the 42Schools environment.
+Installette is a bash script designed to be a simplified and automated setup for the 42Schools' environment.   
+Currently supporting Linux distros that use the apt package manager.  
 
 ### Installing and running installette:
 1- Clone this repository
