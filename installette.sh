@@ -70,8 +70,10 @@ do
 				echo -e "${CYAN}Installing Norminette...${RESET}"
 				python3 -m pip install --upgrade pip setuptools
 				python3 -m pip install norminette
-				echo -e "${CYAN}Updating PATH...${RESET}"
-				echo "export PATH=$PATH: /home/$(whoami)/.local/bin/" >> ~/.bashrc
+				if ! grep -q "/home/$(whoami)/.local/bin/" "/home/$(whoami)/.bashrc"; then
+					echo -e "${CYAN}Updating PATH...${RESET}"
+					echo -e "export PATH=\$PATH:/home/$(whoami)/.local/bin/" >> ~/.bashrc
+				fi
 			fi;;
 
 		"-f" | "--formatter"*)
@@ -82,6 +84,10 @@ do
 				echo -e "${CYAN}Installing c_formatter_42...${RESET}"
 				pip3 install c-formatter-42
 				pip3 install --user c-formatter-42
+				if ! grep -q "/home/$(whoami)/.local/bin" "/home/$(whoami)/.bashrc"; then
+					echo -e "${CYAN}Updating PATH...${RESET}"
+					echo -e "export PATH=\$PATH:/home/$(whoami)/.local/bin/" >> ~/.bashrc
+				fi
 			fi;;
 
 		"-u" | "--uninstall"*)
