@@ -36,7 +36,7 @@ do
 		"-v" | "--vim"*)
 			echo -e "${BLUE}VIM${RESET}"
 			if [ -x "$(command -v vim)" ]; then
-				echo -e "${CYAN}vim is already installed. Skipping...${RESET}"
+				echo -e "${CYAN}Vim is already installed. Skipping...${RESET}"
 			else
 				echo "${CYAN}Installing Vim...${RESET}"
 				sudo apt-get install vim
@@ -45,20 +45,22 @@ do
 		"-h" | "--header"*)
 			echo -e "${BLUE}42 HEADER${RESET}"
 			if [ -x "$(command -v vim)" ]; then
-				echo -e -n "${CYAN}Please insert your 42username${RESET}: "
-				read -r FT_User
-				if ! grep -q 'MAIL=' "/home/$(whoami)/.bashrc"; then
-				{	echo "USER=$FT_User"
-					echo "MAIL=$FT_User@student.42.fr"
-					echo "export MAIL"; } >> ~/.bashrc
+				if grep -q 'MAIL=' "/home/$(whoami)/.bashrc"; then
+					echo -e "${CYAN}42Header is already installed. Skipping...${RESET}"
+				else
+					echo -e -n "${CYAN}Please insert your 42username${RESET}: "
+					read -r FT_User
+					{ echo "USER=$FT_User"
+					  echo "MAIL=$FT_User@student.42.fr"
+					  echo "export MAIL"; } >> ~/.bashrc
+					# mkdir with -p option creates dir if it doesnt exist; if it exists, does nothing."
+					mkdir -p ~/.vim/plugin
+					cp stdheader.vim ~/.vim/plugin/
+					echo "nmap <f1> :FortyTwoHeader<CR>" >> ~/.vimrc
+					echo -e "${GREEN}Sucessfully installed 42Header!${RESET}"
 				fi
-				# mkdir with -p option creates dir if it doesnt exist; if it exists, does nothing.
-				mkdir -p ~/.vim/plugin
-				cp stdheader.vim ~/.vim/plugin/
-				echo "nmap <f1> :FortyTwoHeader<CR>" >> ~/.vimrc
-				echo -e "${GREEN}Sucessfully installed 42Header!${RESET}"
 			else
-				echo -e "${RED}Error${RESET}: vim is not installed."
+				echo -e "${RED}Error${RESET}: Vim is not installed."
 				echo -e "${CYAN}Run installette with the -v or --vim option${RESET}"
 			fi;;
 
@@ -91,10 +93,10 @@ do
 			fi;;
 
 		"-u" | "--uninstall"*)
-			echo -e "${BLUE}UNISTALL${RESET}"
+			echo -e "${BLUE}UNINSTALL${RESET}"
 			#sed's -i option edits files in place
 			sed -i '/^USER/d' ~/.bashrc
-			echo -e "${CYAN}Unistalling 42Header...${RESET}"
+			echo -e "${CYAN}Uninstalling 42Header...${RESET}"
 			sed -i '/^MAIL/d' ~/.bashrc
 			sed -i '/export MAIL/d' ~/.bashrc
 			sed -i '/nmap <f1> :Forty/d' ~/.vimrc
