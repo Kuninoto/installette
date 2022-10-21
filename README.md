@@ -20,7 +20,7 @@ Currently supporting Linux distros that use the apt package manager.
 `-h`, `--header` - Installs 42Header for Vim  
 `-n`, `--norminette` - Installs Norminette  
 `-f`, `--formatter` - Installs Norminette Formatter  
-`-u`, `--uninstall` - Unistalls 42Header  
+`-u`, `--uninstall` - Uninstalls 42Header  
 #### Credits
 [42header.vim](https://github.com/gcamerli/42header)  
 [c_formatter_42](https://github.com/dawnbeen/c_formatter_42)   
