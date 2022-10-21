@@ -16,12 +16,14 @@ simplified and automated setup for the 42Schools environment.
 	bash installette.sh -[option1] -[option2] [...]
 
 #### Available Options:
-`-v` - Installs Vim  
-`-h` - Installs 42Header for Vim  
-`-n` - Installs Norminette  
-`-c` - Unistalls 42Header  
-
-#### 42Header.vim File Credits - [42header.vim](https://github.com/gcamerli/42header)
+`-v`, `--vim` - Installs Vim  
+`-h`, `--header` - Installs 42Header for Vim  
+`-n`, `--norminette` - Installs Norminette  
+`-f`, `--formatter` - Installs Norminette Formatter  
+`-u`, `--uninstall` - Unistalls 42Header  
+#### Credits
+[42header.vim](https://github.com/gcamerli/42header)  
+[c_formatter_42](https://github.com/dawnbeen/c_formatter_42)   
 
 ---
 Made by Nuno Carvalho (Kuninoto) | nnuno-ca@student.42porto.com  
