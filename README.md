@@ -2,7 +2,7 @@
 
 ## About Installette
 Installette is a bash script designed to be a simplified and automated setup for the 42Schools' environment.   
-Currently supporting Linux distros that use the apt package manager.  
+Currently supporting Linux distros that use the apt package manager and have bash.  
 
 ### Installing and running installette:
 1- Clone this repository
