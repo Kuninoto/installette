@@ -70,7 +70,7 @@ do
 				echo -e "${CYAN}Installing Norminette...${RESET}"
 				python3 -m pip install --upgrade pip setuptools
 				python3 -m pip install norminette
-				echo -e "${CYAN}Setting norminette path on PATH environment variable${RESET}"
+				echo -e "${CYAN}Updating PATH...${RESET}"
 				echo "export PATH=$PATH: /home/$(whoami)/.local/bin/" >> ~/.bashrc
 			fi;;
 
