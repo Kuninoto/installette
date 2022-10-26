@@ -21,13 +21,13 @@ echo -n -e "\n"
 if ! [ -x "$(command -v python3)" ]; then
   echo -e "${RED}Error${RESET}: python3 is not installed."
   echo -e "${CYAN}Proceeding to install python3...${RESET}"
-  sudo apt-get install python3
+  sudo apt-get install -y python3
 fi
 
 if ! [ -x "$(command -v pip)" ]; then
   echo -e "${RED}Error${RESET}: pip is not installed."
   echo "${CYAN}Proceeding to install pip...${RESET}"
-  sudo apt-get install python3-pip
+  sudo apt-get install -y python3-pip
 fi
 
 for arg in "$@"
@@ -39,7 +39,7 @@ do
 				echo -e "${CYAN}Vim is already installed. Skipping...${RESET}"
 			else
 				echo "${CYAN}Installing Vim...${RESET}"
-				sudo apt-get install vim
+				sudo apt-get install -y vim
 			fi;;
 
 		"-h" | "--header"*)
@@ -105,6 +105,6 @@ do
 	esac
 done
 
-echo -e "\n${GREEN}Installette terminated!${WHITE}"
-echo -e "Thanks for using Installette =)"
+echo -e "\n${GREEN}Installette terminated!"
+echo -e "${WHITE}Thanks for using Installette =)"
 echo -e "Yours truly, ${CYAN}Nuno Carvalho (Kuninoto)\n${WHITE}nnuno-ca@42porto.student.com${RESET}"
