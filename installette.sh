@@ -106,5 +106,6 @@ do
 done
 
 echo -e "\n${GREEN}Installette terminated!"
+echo -e "\nDon't forget to restart your terminal."
 echo -e "${WHITE}Thanks for using Installette =)"
 echo -e "Yours truly, ${CYAN}Nuno Carvalho (Kuninoto)\n${WHITE}nnuno-ca@42porto.student.com${RESET}"
