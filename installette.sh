@@ -75,7 +75,7 @@ do
 				if ! grep -q "/home/$(whoami)/.local/bin/" "/home/$(whoami)/.bashrc"; then
 					echo -e "${CYAN}Updating PATH...${RESET}"
 					echo -e "export PATH=\$PATH:/home/$(whoami)/.local/bin/" >> ~/.bashrc
-					source ${HOME}/.bashrc
+					source ~/.bashrc
 				fi
 			fi;;
 
@@ -90,6 +90,7 @@ do
 				if ! grep -q "/home/$(whoami)/.local/bin" "/home/$(whoami)/.bashrc"; then
 					echo -e "${CYAN}Updating PATH...${RESET}"
 					echo -e "export PATH=\$PATH:/home/$(whoami)/.local/bin/" >> ~/.bashrc
+					source ~/.bashrc
 				fi
 			fi;;
 
