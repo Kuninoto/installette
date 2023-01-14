@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Author: Nuno Carvalho (Kuninoto)
+# Author: Nuno Carvalho (Kuninoto | nnuno-ca)
 # LINUX
 
 # ANSI COLOR CODES
@@ -26,7 +26,7 @@ fi
 
 if ! [ -x "$(command -v pip)" ]; then
   echo -e "${RED}Error${RESET}: pip is not installed."
-  echo "${CYAN}Proceeding to install pip...${RESET}"
+  echo -e "${CYAN}Proceeding to install pip...${RESET}"
   sudo apt-get install -y python3-pip
 fi
 
@@ -75,6 +75,7 @@ do
 				if ! grep -q "/home/$(whoami)/.local/bin/" "/home/$(whoami)/.bashrc"; then
 					echo -e "${CYAN}Updating PATH...${RESET}"
 					echo -e "export PATH=\$PATH:/home/$(whoami)/.local/bin/" >> ~/.bashrc
+					source ${HOME}/.bashrc
 				fi
 			fi;;
 
@@ -106,6 +107,5 @@ do
 done
 
 echo -e "\n${GREEN}Installette terminated!"
-echo -e "\nDon't forget to restart your terminal."
 echo -e "${WHITE}Thanks for using Installette =)"
 echo -e "Yours truly, ${CYAN}Nuno Carvalho (Kuninoto)\n${WHITE}nnuno-ca@student.42porto.com${RESET}"
